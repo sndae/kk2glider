@@ -13,10 +13,10 @@
 #include <avr/io.h>
 #include <stdbool.h>
 #include <util/delay.h>
-#include "..\inc\io_cfg.h"
-#include "..\inc\adc.h"
-#include "..\inc\eeprom.h"
-#include "..\inc\main.h"
+#include "io_cfg.h"
+#include "adc.h"
+#include "eeprom.h"
+#include "main.h"
 
 //************************************************************
 // Prototypes

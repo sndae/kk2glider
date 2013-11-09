@@ -10,16 +10,16 @@
 #include <avr/io.h>
 #include <stdbool.h>
 #include <util/delay.h>
-#include "..\inc\io_cfg.h"
-#include "..\inc\vbat.h"
-#include "..\inc\adc.h"
-#include "..\inc\init.h"
-#include "..\inc\eeprom.h"
-#include "..\inc\acc.h"
-#include "..\inc\rc.h"
-#include "..\inc\mugui.h"
-#include "..\inc\glcd_driver.h"
-#include "..\inc\main.h"
+#include "io_cfg.h"
+#include "vbat.h"
+#include "adc.h"
+#include "init.h"
+#include "eeprom.h"
+#include "acc.h"
+#include "rc.h"
+#include "mugui.h"
+#include "glcd_driver.h"
+#include "main.h"
 
 //************************************************************
 // Prototypes

@@ -219,24 +219,24 @@
 #include <stdbool.h>
 #include <util/delay.h>
 #include <string.h>
-#include "..\inc\io_cfg.h"
-#include "..\inc\rc.h"
-#include "..\inc\servos.h"
-#include "..\inc\vbat.h"
-#include "..\inc\gyros.h"
-#include "..\inc\init.h"
-#include "..\inc\acc.h"
-#include "..\inc\isr.h"
-#include "..\inc\glcd_driver.h"
-#include "..\inc\pid.h"
-#include "..\inc\mixer.h"
-#include "..\inc\glcd_buffer.h"
-#include "..\inc\mugui.h"
-#include "..\inc\glcd_menu.h"
-#include "..\inc\menu_ext.h"
-#include "..\inc\main.h"
-#include "..\inc\imu.h"
-#include "..\inc\eeprom.h"
+#include "io_cfg.h"
+#include "rc.h"
+#include "servos.h"
+#include "vbat.h"
+#include "gyros.h"
+#include "init.h"
+#include "acc.h"
+#include "isr.h"
+#include "glcd_driver.h"
+#include "pid.h"
+#include "mixer.h"
+#include "glcd_buffer.h"
+#include "mugui.h"
+#include "glcd_menu.h"
+#include "menu_ext.h"
+#include "main.h"
+#include "imu.h"
+#include "eeprom.h"
 
 #include <avr/interrupt.h> // debug
 
@@ -244,8 +244,8 @@
 //* Fonts
 //***********************************************************
 
-#include "..\inc\Font_Verdana.h" 		// 8 (text) and 14 (titles) points
-#include "..\inc\Font_WingdingsOE2.h"	// Cursor and markers
+#include "Font_Verdana.h" 		// 8 (text) and 14 (titles) points
+#include "Font_WingdingsOE2.h"	// Cursor and markers
 
 //***********************************************************
 //* Defines
