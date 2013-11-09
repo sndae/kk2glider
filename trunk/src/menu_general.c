@@ -11,16 +11,16 @@
 #include <stdbool.h>
 #include <string.h>
 #include <util/delay.h>
-#include "..\inc\io_cfg.h"
-#include "..\inc\init.h"
-#include "..\inc\mugui.h"
-#include "..\inc\glcd_menu.h"
-#include "..\inc\menu_ext.h"
-#include "..\inc\glcd_driver.h"
-#include "..\inc\main.h"
-#include "..\inc\eeprom.h"
-#include "..\inc\mixer.h"
-#include "..\inc\imu.h"
+#include "io_cfg.h"
+#include "init.h"
+#include "mugui.h"
+#include "glcd_menu.h"
+#include "menu_ext.h"
+#include "glcd_driver.h"
+#include "main.h"
+#include "eeprom.h"
+#include "mixer.h"
+#include "imu.h"
 
 //************************************************************
 // Prototypes
@@ -41,6 +41,9 @@ void menu_general(void);
 //************************************************************
 // RC menu items
 //************************************************************
+
+#define STD  0
+#define FIXED 1
 
 const uint8_t GeneralMenuText[GENERALITEMS] PROGMEM = {GENERALTEXT, 124, 101, 0, 0, 101, 119, 0, 0, 48, 0, 101};
 const menu_range_t general_menu_ranges[] PROGMEM = 
@@ -81,7 +84,7 @@ void menu_general(void)
 		temp_type = Config.MixMode;
 
 		// Print menu
-		print_menu_items(gen_top, GENERALSTART, &values[0], GENERALITEMS, (prog_uchar*)general_menu_ranges, GENOFFSET, (prog_uchar*)GeneralMenuText, cursor);
+		print_menu_items(gen_top, GENERALSTART, &values[0], GENERALITEMS, (prog_uchar*)general_menu_ranges, 0, GENOFFSET, (prog_uchar*)GeneralMenuText, cursor);
 
 		// Handle menu changes
 		update_menu(GENERALITEMS, GENERALSTART, 0, button, &cursor, &gen_top, &menu_temp);
@@ -90,7 +93,7 @@ void menu_general(void)
 		if (button == ENTER)
 		{
 			text_link = pgm_read_byte(&GeneralMenuText[menu_temp - GENERALSTART]);
-			values[menu_temp - GENERALSTART] = do_menu_item(menu_temp, values[menu_temp - GENERALSTART], range, 0, text_link);
+			do_menu_item(menu_temp, &values[menu_temp - GENERALSTART], 1, range, 0, text_link, false, 0);
 		}
 
 		// Update value in config structure
