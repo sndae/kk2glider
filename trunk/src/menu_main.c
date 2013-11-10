@@ -55,7 +55,7 @@ void menu_main(void)
 	while(button != BACK)
 	{
 		// Clear buffer before each update
-		clear_buffer(buffer);	
+		clear_buffer();	
 
 		// Print menu
 		print_menu_frame(0);													// Frame
@@ -66,7 +66,7 @@ void menu_main(void)
 		}
 
 		print_cursor(main_cursor);												// Cursor
-		write_buffer(buffer);
+		write_buffer();
 
 		// Poll buttons when idle
 		poll_buttons(true);

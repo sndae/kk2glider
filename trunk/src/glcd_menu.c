@@ -399,8 +399,8 @@ void gLCDprint_Menu_P(const char *s, prog_uchar* font,uint16_t x, uint16_t y)
 // Pop up the Idle screen
 void idle_screen(void)
 {
-	clear_buffer(buffer);
+	clear_buffer();
 	LCD_Display_Text(121,(prog_uchar*)Verdana14,40,12); // "Press"
 	LCD_Display_Text(122,(prog_uchar*)Verdana14,24,32); // "for status"
-	write_buffer(buffer);
+	write_buffer();
 };

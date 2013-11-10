@@ -80,7 +80,7 @@ void print_menu_frame(uint8_t style)
 	}
 
 	// Write from buffer
-	write_buffer(buffer);
+	write_buffer();
 }
 
 //**********************************************************************
@@ -103,7 +103,7 @@ void print_menu_items(uint8_t top, uint8_t start, int8_t values[], uint8_t mult,
 	uint8_t multiplier;
 		
 	// Clear buffer before each update
-	clear_buffer(buffer);
+	clear_buffer();
 	print_menu_frame(0);
 	
 	// Print each line
@@ -136,7 +136,7 @@ void print_menu_items(uint8_t top, uint8_t start, int8_t values[], uint8_t mult,
 	}
 
 	print_cursor(cursor);	// Cursor
-	write_buffer(buffer);
+	write_buffer();
 	poll_buttons(true);
 }
 
@@ -249,7 +249,7 @@ void do_menu_item(uint8_t menuitem, int8_t *values, uint8_t mult, menu_range_t r
 			display_update = 0;
 			first_time = false;
 
-			clear_buffer(buffer);
+			clear_buffer();
 
 			// Print title
 			gLCDprint_Menu_P((char*)pgm_read_word(&text_menu[menuitem]), (prog_uchar*)Verdana14, 0, 0);
@@ -274,7 +274,7 @@ void do_menu_item(uint8_t menuitem, int8_t *values, uint8_t mult, menu_range_t r
 			print_menu_frame(1);
 
 			// Write from buffer
-			write_buffer(buffer);
+			write_buffer();
 		}
 
 		// Poll buttons when idle

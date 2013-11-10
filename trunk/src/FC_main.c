@@ -230,7 +230,6 @@
 #include "glcd_driver.h"
 #include "pid.h"
 #include "mixer.h"
-#include "glcd_buffer.h"
 #include "mugui.h"
 #include "glcd_menu.h"
 #include "menu_ext.h"

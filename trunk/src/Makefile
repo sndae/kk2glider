@@ -7,7 +7,7 @@
 
 MCU = atmega324pa
 FORMAT = ihex
-TARGET = openaero2
+TARGET = openaero2-$(REVISION)
 SRC = acc.c              display_sensors.c  FC_main.c      gyros.c   menu_general.c  menu_settings.c  pid.c         stack.c \
 adc.c              display_status.c   imu.c    menu_battery.c  menu_main.c           rc.c          uart.c \
 display_balance.c  display_wizard.c   glcd_driver.c  init.c   menu_driver.c   menu_mixer.c    mixer.c            vbat.c \
@@ -131,10 +131,13 @@ ALL_CFLAGS = -mmcu=$(MCU) -I. $(CFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
+#Get subversion revision
+REVISION :=  $(shell svn info | grep Revision | awk '{print "r" $$2}')
+
 # Default target.
 all: build
 
-build: elf hex eep
+build: elf hex eep code_usage
 
 elf: $(TARGET).elf
 hex: $(TARGET).hex
@@ -183,7 +186,14 @@ extcoff: $(TARGET).elf
 .elf.sym:
 	$(NM) -n $< > $@
 
-
+# Create code usage report file
+code_usage: $(TARGET).elf
+	@echo "Code usage:" > $(TARGET).usage
+	@echo "" >> $(TARGET).usage
+	avr-size $(TARGET).elf >> $(TARGET).usage
+	@echo "" >> $(TARGET).usage
+	avr-size -t *.o >> $(TARGET).usage
+  
 
 # Link: create ELF output file from object files.
 $(TARGET).elf: $(OBJ)

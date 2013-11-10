@@ -37,9 +37,12 @@
 #include "io_cfg.h"
 #include "main.h"
 
+
+uint8_t buffer[1024];
+
 void glcd_delay(void);
 void glcd_spiwrite_asm(uint8_t byte);
-void write_buffer(uint8_t *buffer);
+void write_buffer(void);
 
 //***********************************************************
 //* Low-level code
@@ -120,7 +123,7 @@ void st7565_set_brightness(uint8_t val)
 }
 
 // Write LCD buffer
-void write_buffer(uint8_t *buffer) 
+void write_buffer(void) 
 {
 	uint8_t c, p;
 	for(p = 0; p < 8; p++) 
@@ -138,9 +141,9 @@ void write_buffer(uint8_t *buffer)
 }
 
 // Clear buffer
-void clear_buffer(uint8_t *buff) 
+void clear_buffer(void) 
 {
-	memset(buff, 0, 1024);
+	memset(buffer, 0, 1024);
 }
 
 //***********************************************************
