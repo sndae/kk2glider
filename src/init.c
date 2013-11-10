@@ -162,8 +162,8 @@ void init(void)
 	st7565_command(CMD_SET_ALLPTS_NORMAL);
 	st7565_set_brightness(0x26);
 	st7565_command(CMD_SET_COM_NORMAL); 	// For text
-	clear_buffer(buffer);
-	write_buffer(buffer);
+	clear_buffer();
+	write_buffer();
 
 	// This delay prevents the GLCD flashing up a ghost image of old data
 	_delay_ms(300);	
@@ -173,8 +173,8 @@ void init(void)
 	{
 		// Display reset message
 		LCD_Display_Text(1,(prog_uchar*)Verdana14,40,25);
-		write_buffer(buffer);
-		clear_buffer(buffer);
+		write_buffer();
+		clear_buffer();
 
 		Set_EEPROM_Default_Config();
 		Save_Config_to_EEPROM();
@@ -187,8 +187,8 @@ void init(void)
 
 	// Display "Hold steady" message
 	LCD_Display_Text(2,(prog_uchar*)Verdana14,18,25);
-	write_buffer(buffer);
-	clear_buffer(buffer);
+	write_buffer();
+	clear_buffer();
 		
 	// Do startup tasks
 	UpdateLimits();							// Update travel limts	

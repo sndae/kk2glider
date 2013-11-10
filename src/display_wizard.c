@@ -58,7 +58,7 @@ void Display_sticks(void)
 		offset = 0;
 
 		// Clear screen buffer
-		clear_buffer(buffer);
+		clear_buffer();
 
 		// Draw graphic
 		for (i = 0; i < 2; i++)
@@ -126,7 +126,7 @@ void Display_sticks(void)
 		}
 
 		// Update buffer
-		write_buffer(buffer);
+		write_buffer();
 		_delay_ms(100);
 	}
 
@@ -135,8 +135,8 @@ void Display_sticks(void)
 	{
 		LCD_Display_Text(137,(prog_uchar*)Verdana14,40,43); 	// "Done!"
 		// Update buffer
-		write_buffer(buffer);
-		clear_buffer(buffer);
+		write_buffer();
+		clear_buffer();
 		Save_Config_to_EEPROM();
 		_delay_ms(500);
  	}

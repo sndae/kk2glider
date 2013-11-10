@@ -37,7 +37,7 @@ void Display_status(void)
 	int8_t	pos1, pos2, pos3;
 	mugui_size16_t size;
 
-	clear_buffer(buffer);
+	clear_buffer();
 
 	// Display text
 	LCD_Display_Text(4,(prog_uchar*)Verdana8,0,0); 		// Mode
@@ -148,6 +148,6 @@ void Display_status(void)
 	}
 
 	// Write buffer to complete
-	write_buffer(buffer);
-	clear_buffer(buffer);
+	write_buffer();
+	clear_buffer();
 }
