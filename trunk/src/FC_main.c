@@ -354,7 +354,7 @@ int main(void)
 			// Waiting for status screen to be updated
 			case WAITING_STATUS:
 				// Next time Refresh_safe is set, switch to status screen
-				if (Refresh_safe)
+				if (Main_flags & (1 << Refresh_safe))
 				{
 					Menu_mode = STATUS;
 				}
