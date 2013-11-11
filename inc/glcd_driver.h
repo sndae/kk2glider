@@ -86,9 +86,8 @@ void st7565_command(uint8_t c) ;
 void st7565_data(uint8_t c);
 void st7565_init(void);
 void st7565_set_brightness(uint8_t val);
-void write_buffer(uint8_t *buffer);
-void clear_buffer(uint8_t *buff);
-void write_logo_buffer(uint8_t *buffer);
+void write_buffer(void);
+void clear_buffer(void);
 
 void setpixel(uint8_t *buff, uint8_t x, uint8_t y, uint8_t color);
 void drawrect(uint8_t *buff, uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t color);
