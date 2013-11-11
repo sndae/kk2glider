@@ -85,10 +85,10 @@ LDFLAGS = $(EXTMEMOPTS) $(LDMAP) $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 
 # Programming support using avrdude. Settings and variables.
 
-AVRDUDE_PROGRAMMER = stk500
-AVRDUDE_PORT = /dev/term/a
+AVRDUDE_PROGRAMMER = usbasp
+AVRDUDE_PORT = usb
 
-AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
+AVRDUDE_WRITE_FLASH = -e -U flash:w:$(TARGET).hex:i
 #AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
 
 
