@@ -1,0 +1,1 @@
+Powered or unpowered sailplane/glider stabilization software for KK2.0 board
